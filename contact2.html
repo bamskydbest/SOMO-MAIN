@@ -1,0 +1,124 @@
+<?php
+
+require_once("res.php")
+}
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Page</title>
+    <link rel="stylesheet" href="contact.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?
+    family=Permanent+Marker&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <a href="#" class="logo"
+        ><img src="SOMO.png" alt="" height="100px" width="100px"
+      /></a>
+      <ul class="navlist">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#work">Our Work</a></li>
+        <li><a href="#review">Our Customer</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+      <div class="nav-icons">
+        <a href="#"><i class="bx bx-envelope"></i></a>
+        <div class="bx bx-menu" id="menu-icon"></div>
+      </div>
+    </header>
+
+    <section class="form">
+      <div class="split-screen">
+        <img
+          src="https://img.freepik.com/free-vector/onboarding-concept-illustration_114360-1085.jpg?size=626&ext=jpg"
+          alt="Onboarding-image"
+        />
+
+        <?php if (!empty($errors)): ?>
+          <div class= "alert">
+              <?php foreach ($errors as $error): ?>
+                  <div><?php echo $error ?></div>
+              <?php endforeach; ?>
+          </div>
+        <?php endif; ?>
+        <?php if ($alert): ?>
+          <div class= "success">
+            <div><?php echo $alert ?></div>
+            
+          </div>
+        <?php endif; ?>
+
+        <form action="contact.php" method="post" >
+          <label for="firstName">First Name</label> <br />
+          <input type="text" name="fname"  class="me"/> <br />
+          <label for="lastName">Last Name</label> <br />
+          <input type="text" name="lname" class="me"/> <br />
+          <label for="Location">Location</label> <br />
+          <input type="text" name="location" class="me"/> <br />
+          <label for="Type of job">Type of job?</label> <br />
+          <div class="first">
+            <div class="architecture">
+              <input name="job[]" value="Architecture" type="checkbox" />
+              <label for="Architecture">Architecture</label>
+            </div>
+            <div class="web">
+              <input name="job[]" value="Web Development" type="checkbox" />
+              <label for="web">Web Development (Full-Stack)</label>
+            </div>
+            <div class="ui">
+              <input name="job[]" value="UI/UX" type="checkbox" />
+              <label for="ui">UI/UX</label>
+            </div>
+          </div>
+          <div class="second">
+            <div class="data">
+              <input name="job[]" value="Data Analysis" type="checkbox" />
+              <label for="data">Data Analysis</label>
+            </div>
+              <div class="management">
+                <input name="job[]" value="Product Management" type="checkbox" />
+                <label for="management">Product Management</label>
+              </div>
+              <div class="design">
+                <input name="job[]" value="Product Design" type="checkbox" />
+                <label for="design">Product Design</label>
+              </div>
+            </div>
+            <label for="Contact">Contact</label> <br />
+            <input name="contact" type="text" class="me"/> <br />
+            <label for="delivery">Date to be delivered</label> <br />
+            <input name="delivery" type="date" class="me" /> <br />
+            <label for="job ">Job Description</label> <br />
+            <textarea
+              name="job_description"
+              id=""
+              cols="30"
+              rows="10"
+              style="resize: none;"
+            ></textarea> <br>
+            <input type="submit" name="cc" value="Submit" class="submit">
+            
+          </div>
+          
+        </form>
+      </div>
+    </section>
+    <script src="script.js"></script>
+  </body>
+</html>
